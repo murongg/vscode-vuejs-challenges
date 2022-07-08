@@ -2,7 +2,7 @@
   "publisher": "murong",
   "name": "vuejs-challenges",
   "displayName": "Vuejs challenges in VS Code.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "packageManager": "pnpm@7.0.1",
   "description": "",
   "author": "MuRong <hi@mrong.me>",

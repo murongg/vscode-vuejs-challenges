@@ -1,7 +1,7 @@
 {
   "publisher": "murong",
   "name": "vscode-vuejs-challenges",
-  "displayName": "My Extension",
+  "displayName": "Vuejs challenges in VS Code.",
   "version": "0.0.0",
   "private": true,
   "packageManager": "pnpm@7.0.1",

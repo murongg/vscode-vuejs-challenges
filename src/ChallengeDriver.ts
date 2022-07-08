@@ -1,4 +1,4 @@
-import { fetchData } from './fetch';
+import { fetchData } from './fetch'
 
 export type ChallengeDifficulty = 'warm' | 'easy' | 'medium' | 'hard' | 'extreme'
 export type ChallengeLanguage = 'en' | 'zh-CN'
@@ -9,7 +9,7 @@ export interface ChallengeAuthorInfo {
 }
 export interface ChallengeInfo {
   title: string
-  author: ChallengeAuthorInfo,
+  author: ChallengeAuthorInfo
   difficulty: ChallengeDifficulty
   tags: string
 }
@@ -30,7 +30,6 @@ export type Challenge = {
 }
 
 export class ChallengeDriver {
-
   public data?: Challenge
   constructor() { }
 

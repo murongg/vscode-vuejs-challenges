@@ -1,14 +1,15 @@
-import { TreeItemCollapsibleState, TreeDataProvider, Event, Disposable, EventEmitter } from 'vscode';
-import { ChallengeDifficulty, challengeDriver } from './ChallengeDriver';
-import { ChallengeNode } from './ChallengeNode';
+import type { Disposable, Event, TreeDataProvider } from 'vscode'
+import { EventEmitter, TreeItemCollapsibleState } from 'vscode'
+import type { ChallengeDifficulty } from './ChallengeDriver'
+import { challengeDriver } from './ChallengeDriver'
+import { ChallengeNode } from './ChallengeNode'
 
 export class ChallengesProvider implements TreeDataProvider<ChallengeNode>, Disposable {
-
-  private _onDidChangeTreeData: EventEmitter<ChallengeNode | undefined | null | void> = new EventEmitter<ChallengeNode | undefined | null | void>();
-  readonly onDidChangeTreeData: Event<ChallengeNode | undefined | null | void> = this._onDidChangeTreeData.event;
+  private _onDidChangeTreeData: EventEmitter<ChallengeNode | undefined | null | void> = new EventEmitter<ChallengeNode | undefined | null | void>()
+  readonly onDidChangeTreeData: Event<ChallengeNode | undefined | null | void> = this._onDidChangeTreeData.event
 
   getTreeItem(element: ChallengeNode): ChallengeNode {
-    return element;
+    return element
   }
 
   async getChildren(element?: ChallengeNode) {
@@ -21,15 +22,15 @@ export class ChallengesProvider implements TreeDataProvider<ChallengeNode>, Disp
   }
 
   public dispose() {
-    this.fire();
+    this.fire()
   }
 
   fire(): void {
-    this._onDidChangeTreeData.fire(null);
+    this._onDidChangeTreeData.fire(null)
   }
 
   refresh(): void {
-    this._onDidChangeTreeData.fire();
+    this._onDidChangeTreeData.fire()
   }
 
   private initChallengeDifficulty() {
@@ -44,8 +45,6 @@ export class ChallengesProvider implements TreeDataProvider<ChallengeNode>, Disp
         new ChallengeNode(`${question.path}`, question.no, TreeItemCollapsibleState.None, question, true))
       || []
   }
-
 }
-
 
 export const challengesProvider = new ChallengesProvider()

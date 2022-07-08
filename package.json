@@ -23,7 +23,7 @@
     "Other"
   ],
   "main": "./dist/index.js",
-  "icon": "res/icon.png",
+  "icon": "resources/logo.png",
   "files": [
     "dist"
   ],

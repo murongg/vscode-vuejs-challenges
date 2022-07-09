@@ -16,7 +16,7 @@ export function fetchData(): Thenable<Challenge> {
         window.showInformationMessage(message)
         reject(message)
       }
-    }).catch(err => {
+    }).catch((err) => {
       window.showInformationMessage(err)
     })
   })

@@ -39,9 +39,7 @@ class PreviewProvider {
       panel.webview.html = html
     }
     catch (error) {
-      // eslint-disable-next-line no-console
       window.showInformationMessage(error as string)
-      console.log('preview error: ', error)
     }
   }
 }

@@ -16,8 +16,8 @@ const markdownIt = new MarkdownIt({
 class PreviewProvider {
   public show(node: ChallengeNode): void {
     const panel = window.createWebviewPanel(
-      'catCoding',
-      'Cat Coding',
+      'Challenge Details',
+      node.data?.info.en.title || '',
       ViewColumn.One,
       {},
     )

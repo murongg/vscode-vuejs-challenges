@@ -1,6 +1,6 @@
 import type { Command, TreeItemCollapsibleState } from 'vscode'
 import { TreeItem } from 'vscode'
-import type { ChallengeData } from './ChallengeDriver'
+import type { ChallengeData, ChallengeLanguage } from './ChallengeDriver'
 import { Commands } from './config'
 
 export class ChallengeNode extends TreeItem {
@@ -10,6 +10,7 @@ export class ChallengeNode extends TreeItem {
     public collapsibleState?: TreeItemCollapsibleState,
     public data?: ChallengeData,
     public readonly isChild: boolean = false,
+    public language: ChallengeLanguage = 'en'
   ) {
     const label = no ? `${no} - ${titie}` : titie
     super(label, collapsibleState)

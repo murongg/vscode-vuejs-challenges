@@ -50,6 +50,15 @@
           "light": "resources/refresh.svg",
           "dark": "resources/refresh.svg"
         }
+      },
+      {
+        "category": "vuejs-challenges",
+        "command": "vuejs-challenges.language",
+        "title": "Language",
+        "icon": {
+          "light": "resources/language.svg",
+          "dark": "resources/language.svg"
+        }
       }
     ],
     "viewsContainers": {
@@ -73,6 +82,11 @@
       "view/title": [
         {
           "command": "vuejs-challenges.refresh",
+          "when": "view == vuejsChallengeList",
+          "group": "navigation"
+        },
+        {
+          "command": "vuejs-challenges.language",
           "when": "view == vuejsChallengeList",
           "group": "navigation"
         }

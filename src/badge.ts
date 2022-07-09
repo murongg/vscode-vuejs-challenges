@@ -7,7 +7,7 @@ export function generateBadge(label: string, text: string, color: string, args =
   return `<img src="${generateBadgeURL(label, text, color, args)}" alt="${text}"/>`
 }
 
-export function generateBadgeLink(url: string, label: string = '', text: string, color: string, args = '') {
+export function generateBadgeLink(url: string, label = '', text: string, color: string, args = '') {
   return `<a href="${url}" target="_blank">${generateBadge(label, text, color, args)}</a> `
 }
 

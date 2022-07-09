@@ -11,7 +11,7 @@ export function activate(context: ExtensionContext) {
       challengesProvider.refresh(),
     ),
     commands.registerCommand(Commands.language, () =>
-     challengesProvider.changeLanguage()
+      challengesProvider.changeLanguage(),
     ),
   )
   window.createTreeView('vuejsChallengeList', {

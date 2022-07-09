@@ -10,7 +10,7 @@ export class ChallengeNode extends TreeItem {
     public collapsibleState?: TreeItemCollapsibleState,
     public data?: ChallengeData,
     public readonly isChild: boolean = false,
-    public language: ChallengeLanguage = 'en'
+    public language: ChallengeLanguage = 'en',
   ) {
     const label = no ? `${no} - ${titie}` : titie
     super(label, collapsibleState)

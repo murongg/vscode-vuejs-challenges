@@ -16,9 +16,9 @@ export class ChallengesProvider implements TreeDataProvider<ChallengeNode>, Disp
 
   async getChildren(element?: ChallengeNode) {
     if (!element) {
-      if (!challengeDriver.data) {
+      if (!challengeDriver.data)
         await challengeDriver.initData()
-      }
+
       return this.initChallengeDifficulty()
     }
     const res = await this.getChallengeData(element.label as ChallengeDifficulty)
@@ -38,11 +38,10 @@ export class ChallengesProvider implements TreeDataProvider<ChallengeNode>, Disp
   }
 
   changeLanguage() {
-    if (this.language === 'en') {
+    if (this.language === 'en')
       this.language = 'zh-CN'
-    } else {
+    else
       this.language = 'en'
-    }
 
     this.refresh()
   }

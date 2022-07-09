@@ -9,6 +9,7 @@ export class ChallengesProvider implements TreeDataProvider<ChallengeNode>, Disp
   readonly onDidChangeTreeData: Event<ChallengeNode | undefined | null | void> = this._onDidChangeTreeData.event
 
   public language: ChallengeLanguage = 'en'
+  public isRefreshData = true
 
   getTreeItem(element: ChallengeNode): ChallengeNode {
     return element
@@ -16,7 +17,7 @@ export class ChallengesProvider implements TreeDataProvider<ChallengeNode>, Disp
 
   async getChildren(element?: ChallengeNode) {
     if (!element) {
-      if (!challengeDriver.data)
+      if (this.isRefreshData)
         await challengeDriver.initData()
 
       return this.initChallengeDifficulty()
@@ -33,7 +34,8 @@ export class ChallengesProvider implements TreeDataProvider<ChallengeNode>, Disp
     this._onDidChangeTreeData.fire(null)
   }
 
-  refresh(): void {
+  async refresh(isRefreshData = true) {
+    this.isRefreshData = isRefreshData
     this._onDidChangeTreeData.fire()
   }
 
@@ -42,8 +44,7 @@ export class ChallengesProvider implements TreeDataProvider<ChallengeNode>, Disp
       this.language = 'zh-CN'
     else
       this.language = 'en'
-
-    this.refresh()
+    this.refresh(false)
   }
 
   private initChallengeDifficulty() {

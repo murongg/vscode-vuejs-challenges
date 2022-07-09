@@ -32,8 +32,10 @@
   },
   "activationEvents": [
     "onStartupFinished",
+    "onView:vuejsChallengeList",
     "onCommand:vuejs-challenges.open",
-    "onView:vuejsChallengeList"
+    "onCommand:vuejs-challenges.refresh",
+    "onCommand:vuejs-challenges.language"
   ],
   "contributes": {
     "commands": [

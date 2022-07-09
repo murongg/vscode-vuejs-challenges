@@ -1,10 +1,10 @@
 {
   "publisher": "murong",
   "name": "vuejs-challenges",
-  "displayName": "Vuejs challenges in VS Code.",
+  "displayName": "vuejs-challenges",
   "version": "0.1.1",
   "packageManager": "pnpm@7.0.1",
-  "description": "",
+  "description": "Vuejs challenges in VS Code.",
   "author": "MuRong <hi@mrong.me>",
   "license": "MIT",
   "funding": "https://github.com/sponsors/murongg",

@@ -48,7 +48,7 @@ export class ChallengesProvider implements TreeDataProvider<ChallengeNode>, Disp
   }
 
   private initChallengeDifficulty() {
-    return ['easy', 'medium', 'hard'].map(d => new ChallengeNode(d, undefined, TreeItemCollapsibleState.Collapsed, undefined, false, this.language))
+    return ['warm', 'easy', 'medium', 'hard', 'extreme'].map(d => new ChallengeNode(d, undefined, TreeItemCollapsibleState.Collapsed, undefined, false, this.language))
   }
 
   private async getChallengeData(difficulty: ChallengeDifficulty) {

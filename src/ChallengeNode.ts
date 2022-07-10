@@ -14,6 +14,9 @@ export class ChallengeNode extends TreeItem {
   ) {
     const label = no ? `${no} - ${titie}` : titie
     super(label, collapsibleState)
+    if (data)
+      this.contextValue = 'child'
+
     if (isChild)
       this.command = this.previewCommand
   }

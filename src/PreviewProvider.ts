@@ -2,7 +2,7 @@ import { ViewColumn, window } from 'vscode'
 import MarkdownIt from 'markdown-it'
 
 import type { ChallengeNode } from './ChallengeNode'
-import { generateBadge, generateBadgeLink, generateDifficultyBadge } from './badge'
+import { generateBadge, generateDifficultyBadge } from './badge'
 import type { ChallengeAuthorInfo } from './ChallengeDriver'
 
 // let css = ''
@@ -31,11 +31,32 @@ class PreviewProvider {
       const readme = markdownIt.render(node.data!.readme[node.language])
       const { author } = node.data!.info[node.language]
       const { tags, difficulty } = node.data!.info.en
-      const { quizLink } = node.data!
       const html = ''
         + `<h1>${node.data!.path} ${generateDifficultyBadge(difficulty)} ${(tags ? tags.split(',') : []).map(i => generateBadge('', `#${i}`, '999')).join(' ')}</h1>`
-        + `<blockquote><p>${generateAuthorInfo(author)}</p></blockquote>`
-        + `<p>${generateBadgeLink(quizLink, '', 'Take the Challenge', '213547', '?logo=vue.js&logoColor=42b883')}</p>${readme}`
+        + `<blockquote><p>${generateAuthorInfo(author)}</p></blockquote>${
+         readme}`
+      panel.webview.html = html
+    }
+    catch (error) {
+      window.showInformationMessage(error as string)
+    }
+  }
+
+  public showChallenge(node: ChallengeNode): void {
+    const panel = window.createWebviewPanel(
+      'Challenge Challenge',
+      `${node.data?.info[node.language].title || ''} Challenge`,
+      ViewColumn.Two,
+      {
+        enableScripts: true,
+      },
+    )
+    try {
+      const html = `
+      <body style="margin: 0; padding:0;">
+        <iframe src="${node.data?.quizLink}" frameborder="0" style="width: 100vw; height:100vh;"></iframe>
+      </body>
+      `
       panel.webview.html = html
     }
     catch (error) {

@@ -61,6 +61,15 @@
           "light": "resources/language.svg",
           "dark": "resources/language.svg"
         }
+      },
+      {
+        "category": "vuejs-challenges",
+        "command": "vuejs-challenges.challenge",
+        "title": "Challenge",
+        "icon": {
+          "light": "resources/challenge.svg",
+          "dark": "resources/challenge.svg"
+        }
       }
     ],
     "viewsContainers": {
@@ -91,6 +100,13 @@
           "command": "vuejs-challenges.language",
           "when": "view == vuejsChallengeList",
           "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "vuejs-challenges.challenge",
+          "when": "view == vuejsChallengeList && viewItem == child",
+          "group": "inline"
         }
       ]
     }

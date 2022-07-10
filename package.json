@@ -94,19 +94,22 @@
         {
           "command": "vuejs-challenges.refresh",
           "when": "view == vuejsChallengeList",
-          "group": "navigation"
+          "group": "navigation",
+          "alt": "Refresh"
         },
         {
           "command": "vuejs-challenges.language",
           "when": "view == vuejsChallengeList",
-          "group": "navigation"
+          "group": "navigation",
+          "alt": "Language"
         }
       ],
       "view/item/context": [
         {
           "command": "vuejs-challenges.challenge",
           "when": "view == vuejsChallengeList && viewItem == child",
-          "group": "inline"
+          "group": "inline",
+          "alt": "SFC Playground"
         }
       ]
     }

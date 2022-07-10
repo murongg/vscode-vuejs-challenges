@@ -114,12 +114,12 @@
       "view/item/context": [
         {
           "command": "vuejs-challenges.sfc-challenge",
-          "when": "view == vuejsChallengeList && viewItem == child",
+          "when": "view == vuejsChallengeList && viewItem == SFC || viewItem == ALL",
           "group": "inline"
         },
         {
           "command": "vuejs-challenges.stackblitz-challenge",
-          "when": "view == vuejsChallengeList && viewItem == child",
+          "when": "view == vuejsChallengeList && viewItem == STACKBLITZ || viewItem == ALL",
           "group": "inline"
         }
       ]

@@ -3,6 +3,13 @@ import { TreeItem } from 'vscode'
 import type { ChallengeData, ChallengeLanguage } from './ChallengeDriver'
 import { Commands } from './config'
 
+export enum ChallengeNodeContentValue {
+  SFC = 'SFC',
+  STACKBLITZ = 'STACKBLITZ',
+  ALL = 'ALL',
+  NONE = 'NONE'
+}
+
 export class ChallengeNode extends TreeItem {
   constructor(
     public titie: string,
@@ -14,8 +21,21 @@ export class ChallengeNode extends TreeItem {
   ) {
     const label = no ? `${no} - ${titie}` : titie
     super(label, collapsibleState)
-    if (data)
-      this.contextValue = 'child'
+    if (data) {
+      if (data.quizLink && data.stackblitzLink[language]) {
+        this.contextValue = ChallengeNodeContentValue.ALL
+      }
+      else {
+        if (data.quizLink) {
+          this.contextValue = ChallengeNodeContentValue.SFC
+        } else if (data.stackblitzLink[language]) {
+          this.contextValue = ChallengeNodeContentValue.STACKBLITZ
+        } else {
+          this.contextValue = ChallengeNodeContentValue.NONE
+        }
+      }
+    }
+
 
     if (isChild)
       this.command = this.previewCommand

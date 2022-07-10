@@ -7,7 +7,7 @@ export enum ChallengeNodeContentValue {
   SFC = 'SFC',
   STACKBLITZ = 'STACKBLITZ',
   ALL = 'ALL',
-  NONE = 'NONE'
+  NONE = 'NONE',
 }
 
 export class ChallengeNode extends TreeItem {
@@ -26,16 +26,14 @@ export class ChallengeNode extends TreeItem {
         this.contextValue = ChallengeNodeContentValue.ALL
       }
       else {
-        if (data.quizLink) {
+        if (data.quizLink)
           this.contextValue = ChallengeNodeContentValue.SFC
-        } else if (data.stackblitzLink[language]) {
+        else if (data.stackblitzLink[language])
           this.contextValue = ChallengeNodeContentValue.STACKBLITZ
-        } else {
+        else
           this.contextValue = ChallengeNodeContentValue.NONE
-        }
       }
     }
-
 
     if (isChild)
       this.command = this.previewCommand

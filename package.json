@@ -64,11 +64,20 @@
       },
       {
         "category": "vuejs-challenges",
-        "command": "vuejs-challenges.challenge",
-        "title": "Challenge",
+        "command": "vuejs-challenges.stackblitz-challenge",
+        "title": "stackblitz",
         "icon": {
-          "light": "resources/challenge.svg",
-          "dark": "resources/challenge.svg"
+          "light": "resources/stackblitz.png",
+          "dark": "resources/stackblitz.png"
+        }
+      },
+      {
+        "category": "vuejs-challenges",
+        "command": "vuejs-challenges.sfc-challenge",
+        "title": "SFC Playground",
+        "icon": {
+          "light": "resources/vue-playground.svg",
+          "dark": "resources/vue-playground.svg"
         }
       }
     ],
@@ -77,7 +86,7 @@
         {
           "id": "vuejs-challenges-explorer",
           "title": "Challenge Explorer",
-          "icon": "resources/vue.svg"
+          "icon": "resources/active-bar.svg"
         }
       ]
     },
@@ -94,22 +103,24 @@
         {
           "command": "vuejs-challenges.refresh",
           "when": "view == vuejsChallengeList",
-          "group": "navigation",
-          "alt": "Refresh"
+          "group": "navigation"
         },
         {
           "command": "vuejs-challenges.language",
           "when": "view == vuejsChallengeList",
-          "group": "navigation",
-          "alt": "Language"
+          "group": "navigation"
         }
       ],
       "view/item/context": [
         {
-          "command": "vuejs-challenges.challenge",
+          "command": "vuejs-challenges.sfc-challenge",
           "when": "view == vuejsChallengeList && viewItem == child",
-          "group": "inline",
-          "alt": "SFC Playground"
+          "group": "inline"
+        },
+        {
+          "command": "vuejs-challenges.stackblitz-challenge",
+          "when": "view == vuejsChallengeList && viewItem == child",
+          "group": "inline"
         }
       ]
     }

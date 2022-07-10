@@ -17,6 +17,9 @@ export interface ChallengeData {
   path: string
   quizLink: string
   no: number
+  stackblitzLink: {
+    [K in ChallengeLanguage]: string
+  }
   readme: {
     [K in ChallengeLanguage]: string
   }

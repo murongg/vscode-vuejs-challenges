@@ -42,19 +42,22 @@ class PreviewProvider {
     }
   }
 
-  public showChallenge(node: ChallengeNode): void {
+  public showChallenge(node: ChallengeNode, url: string, column: ViewColumn): void {
     const panel = window.createWebviewPanel(
       'Challenge Challenge',
       `${node.data?.info[node.language].title || ''} Challenge`,
-      ViewColumn.Two,
+      column,
       {
         enableScripts: true,
+        enableCommandUris: true,
+        enableForms: true,
+        enableFindWidget: true,
       },
     )
     try {
       const html = `
       <body style="margin: 0; padding:0;">
-        <iframe src="${node.data?.quizLink}" frameborder="0" style="width: 100vw; height:100vh;"></iframe>
+        <iframe src="${url}" frameborder="0" style="width: 100vw; height:100vh;"></iframe>
       </body>
       `
       panel.webview.html = html

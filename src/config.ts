@@ -2,5 +2,6 @@ export enum Commands {
   refresh = 'vuejs-challenges.refresh',
   language = 'vuejs-challenges.language',
   openChallengeWebView = 'vuejs-challenges.openChallengeWebView',
-  challenge = 'vuejs-challenges.challenge',
+  sfcChallenge = 'vuejs-challenges.sfc-challenge',
+  stackblitzChallenge = 'vuejs-challenges.stackblitz-challenge',
 }
